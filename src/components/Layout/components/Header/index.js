@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCircleQuestion,
   faCircleXmark,
+  faEarthAsia,
+  faEllipsisVertical,
+  faKeyboard,
   faMagnifyingGlass,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +17,25 @@ import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import AccountItem from "~/components/AccountItem";
+import Menu from "~/components/Popper/Menu";
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEM = [
+  {
+    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    title: "Tiếng Việt",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: "Phản hồi và trợ giúp",
+    to: "/feedback",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: "Phím tắt",
+  },
+];
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
@@ -57,6 +78,12 @@ function Header() {
         <div className={cx("actions")}>
           <Button text>Tải lên</Button>
           <Button primary>Đăng nhập</Button>
+
+          <Menu items={MENU_ITEM}>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
