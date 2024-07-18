@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,6 +25,21 @@ const MENU_ITEM = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: "Tiếng Việt",
+    children: {
+      title: "Ngôn ngữ",
+      data: [
+        {
+          type: "Language",
+          code: "en",
+          title: "English",
+        },
+        {
+          type: "Language",
+          code: "vi",
+          title: "Tiếng Việt",
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -45,6 +60,18 @@ function Header() {
       setSearchResult([]);
     }, 0);
   }, []);
+
+  const handleMenuChange = (menuItem) => {
+    switch (menuItem.type) {
+      case "Language":
+        //handle change language
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
@@ -79,7 +106,7 @@ function Header() {
           <Button text>Tải lên</Button>
           <Button primary>Đăng nhập</Button>
 
-          <Menu items={MENU_ITEM}>
+          <Menu items={MENU_ITEM} onChange={handleMenuChange}>
             <button className={cx("more-btn")}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
