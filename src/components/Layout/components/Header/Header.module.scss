@@ -115,11 +115,13 @@
 }
 
 .action-btn {
+  display: flex;
   color: rgba(22, 24, 35);
   font-size: 2.2rem;
   background-color: transparent;
   padding: 4px 12px;
   cursor: pointer;
+  position: relative;
 }
 
 .user-avatar {
@@ -128,4 +130,22 @@
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+}
+
+.inbox-number {
+  min-width: 20px;
+  height: 20px;
+  background-color: var(--primary);
+  position: absolute;
+  left: 50%;
+  bottom: 58%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--white);
+  padding: 0 6px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
