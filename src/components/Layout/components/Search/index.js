@@ -42,6 +42,11 @@ function Search() {
     fetchApi();
   }, [debounced]);
 
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) setSearchValue(searchValue);
+  };
+
   const handleClear = () => {
     setSearchValue("");
     setSearchResult([]);
@@ -74,10 +79,7 @@ function Search() {
           value={searchValue}
           placeholder="Tìm kiếm"
           spellCheck={false}
-          onChange={(e) => {
-            e.target.value = e.target.value.trimStart();
-            setSearchValue(e.target.value);
-          }}
+          onChange={handleChange}
           onFocus={() => setShowResult(true)}
         />
         {searchValue && !loading && (
@@ -89,7 +91,10 @@ function Search() {
           <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
         )}
 
-        <button className={cx("search-btn")}>
+        <button
+          className={cx("search-btn")}
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <SearchIcon />
         </button>
       </div>
