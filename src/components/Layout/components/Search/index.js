@@ -9,6 +9,7 @@ import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Search.module.scss";
 import AccountItem from "~/components/AccountItem";
 import { SearchIcon } from "~/components/Icon";
+import { useDebounce } from "~/hooks";
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +18,8 @@ function Search() {
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const debounced = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
@@ -41,7 +44,7 @@ function Search() {
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   const handleClear = () => {
     setSearchValue("");

@@ -22,6 +22,7 @@ import {
 } from "~/components/Icon";
 import Image from "~/components/Image";
 import Search from "../Search";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -99,7 +100,9 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <img src={images.logo} alt="Tiktok" />
+        <Link to="/">
+          <img src={images.logo} alt="Tiktok" />
+        </Link>
 
         {/* Search */}
         <Search />
