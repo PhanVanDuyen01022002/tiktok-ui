@@ -5,7 +5,7 @@ import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import HeadlessTippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 
-import * as searchServices from "~/apiServices/searchService";
+import * as searchServices from "~/services/searchService";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import styles from "./Search.module.scss";
 import AccountItem from "~/components/AccountItem";
@@ -40,6 +40,7 @@ function Search() {
     };
 
     fetchApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced]);
 
   const handleChange = (e) => {
