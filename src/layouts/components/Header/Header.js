@@ -145,7 +145,7 @@ function Header() {
           >
             {currentUser ? (
               <Image
-                src="ttps://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/75bb784c32417b8b8574939ee27edb14.jpeg?lk3s=a5d48078&nonce=94286&refresh_token=ef2755cad7d0f032e8a769526cb12680&x-expires=1721545200&x-signature=9XTwt75p9WbenJ05osQBiDtbfUw%3D&shp=a5d48078&shcp=81f88b70"
+                src="https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-1/452191707_1168189331076958_7986720209837051578_n.jpg?stp=dst-jpg_p200x200&_nc_cat=108&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=Xz45W5eqJU0Q7kNvgHpTdv-&_nc_ht=scontent.fdad3-1.fna&oh=00_AYBMQdGaAypzcUwH70gi_94Ms4Gnkeyd_uJA2dd13z7C3g&oe=66A58501"
                 className={cx("user-avatar")}
                 alt="Phan Van Duyen"
                 fallback="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png"
